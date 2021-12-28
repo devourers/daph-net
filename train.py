@@ -45,6 +45,7 @@ def train(model, train_images, train_masks, test_images, test_masks, n_epochs, l
     '''
     opt = torch.optim.Adam(model.parameters(), lr=0.005)
     log = []
+    print('Training model...')
     for i in tqdm.tqdm(range(n_epochs)):
         y_pred = model.forward(train_images)
         train_loss = loss_function(y_pred, train_masks)

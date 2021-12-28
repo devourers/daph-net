@@ -16,7 +16,7 @@ class SegmConv2d(nn.Module):
 class DaphNet(nn.Module):
     '''
     TODO
-    Segmentation daphnia model 
+    Daphnia segmentation network. 
     '''
     def __init__(self, in_channels, out_channels) -> None:
         super(DaphNet, self).__init__()
