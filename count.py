@@ -1,6 +1,3 @@
-from preprocess import form_image_sequence
-
-
 def count(image):
     raise NotImplementedError
 

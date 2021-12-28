@@ -1,9 +1,12 @@
+import torch
+import torchvision
 
 def divide_clip(path):
     raise NotImplementedError
 
-def resize(image):
-    raise NotImplementedError
+def resize(image, size):
+    res_image = torchvision.transforms.resize(image, size[0], size[1])
+    return res_image
 
 def form_image_sequence(images):
     res = []

@@ -1,11 +1,10 @@
 import count
-import preprocess
 import segmentation
 import json
 
 
 def main(path, model_path, real_data=None):
-    inp = preprocess.preprocess(path)
+    inp = 0
     model = segmentation.Net()
     model.load(model_path)
     seg_res = segmentation.process_image_sequence(model, inp)
