@@ -1,6 +1,7 @@
 def count(image):
     raise NotImplementedError
 
+
 def form_markup(count_result):
     raise NotImplementedError
 
