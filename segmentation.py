@@ -1,25 +1,30 @@
 import torch
+import torch.nn as nn
 
 
-class SegmConv2d(torch.nn.Module):
+class SegmConv2d(nn.Module):
     def __init__(self, in_channels, out_channels):
-        pass
+        super(SegmConv2d, self).__init__()
+        self.in_channels = in_channels
+        self.out_channels = out_channels
+
+
     def forward(self, X):
         return X
 
-class DaphNet(torch.nn.Module):
+class DaphNet(nn.Module):
     def __init__(self, in_channels, out_channels) -> None:
         super(DaphNet, self).__init__()
+        self.segconv1 = SegmConv2d(in_channels, out_channels)
+        self.segconv2 = SegmConv2d(out_channels, out_channels)
+        self.activation = nn.ReLU()
 
     def forward(self, X):
-        return 0
+        return X
 
     def predict(self, X):
-        return 0
-
-
-def train(model):
-    raise NotImplementedError
+        with torch.no_grad():
+            return self.forward(X)
 
 
 def process_image_sequence(model, sequence):
