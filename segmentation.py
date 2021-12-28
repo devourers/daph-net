@@ -31,5 +31,4 @@ def process_image_sequence(model, sequence):
     res = []
     for image in sequence:
         res.append(model.predict(image))
-
     return res
