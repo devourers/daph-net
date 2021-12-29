@@ -5,7 +5,8 @@ import train
 import torch
 import torch.nn as nn
 import numpy as np
-
+import matplotlib.pyplot as plt
+import pred_data
 
 def train_pipe(path, model_path, n_epochs, test_ratio):
     '''
@@ -39,8 +40,29 @@ def train_pipe(path, model_path, n_epochs, test_ratio):
 
 
 def pred_pipe(path, model_path):
-    raise NotImplementedError()
+    '''
+    Predicition pipeline.
+    '''
+    try:
+        model = segmentation.Net()
+        model.load_state_dict(torch.load(model_path))
+        model.eval()
+        print('Loaded model from \'' + model_path + '\' ...')
+        pred_images = pred_data.load_prediction_data(path)
+        res = []
+        for image in pred_images:
+            pred = model.predict(image)
+            res.append(pred.numpy())
+        #dump all images, or count pipe
+    except:
+        print('No model was found, not prediciting.')
+        return 
+    
 
 
-def main(path, model_path, real_data=None):
+
+def env(path, model_path, real_data=None):
     print('i am not ready yet')
+
+if __name__ == '__main__':
+    env('', '')

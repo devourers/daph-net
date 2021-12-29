@@ -22,7 +22,7 @@ def load_data(path):
         images.append(curr_frame)
         masks.append(curr_mask)
     return images, masks
-
+    
 
 def form_dataset(images, masks, test_ratio):
     '''
